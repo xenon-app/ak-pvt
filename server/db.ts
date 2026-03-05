@@ -11,8 +11,16 @@ app.use(cors()); // allow frontend requests
 
 const SECRET = 'your_jwt_secret'; // replace with env variable in production
 
+
+
+
 // --- DATABASE ---
-const db = new Database('restaurant.db');
+import Database from 'better-sqlite3';
+export const db = new Database('restaurant.db');
+
+export function initDb() {
+  // ... all your current initialization and seeding code
+};
 
 // Initialize tables and seed data
 function initDb() {
