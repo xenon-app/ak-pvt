@@ -19,6 +19,9 @@ interface User {
   restaurant_id: number;
 }
 
+const stmt = db.prepare('SELECT * FROM users WHERE username = ?');
+const user = stmt.get(username) as User | undefined;
+
 initDb();
 
 // Login route
