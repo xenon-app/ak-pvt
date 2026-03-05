@@ -116,9 +116,9 @@ function seedData() {
   if (result.count === 0) {
     console.log('Seeding data...');
 
-    // 1. Create Restaurant
-    const info = db.prepare('INSERT INTO restaurants (name, lat, lng) VALUES (?, ?, ?)').run('Adarsh PVT.', 12.9716, 77.5946);
-    const restaurantId = info.lastInsertRowid;
+   // 1. Create Restaurant
+const info = db.prepare('INSERT INTO restaurants (name, lat, lng) VALUES (?, ?, ?)').run('Adarsh PVT.', 26.563491406057995, 85.53364655327498);
+const restaurantId = info.lastInsertRowid;
 
     // 2. Create Users
     const password = bcrypt.hashSync('password', 10);
@@ -126,6 +126,7 @@ function seedData() {
     insertUser.run(restaurantId, 'admin', password, 'admin');
     insertUser.run(restaurantId, 'kitchen', password, 'kitchen');
     insertUser.run(restaurantId, 'billing', password, 'billing');
+    insertUser.run(restaurantId, 'owner', password1, 'owner');
 
     // 3. Create Tables
     const insertTable = db.prepare('INSERT INTO tables (restaurant_id, name) VALUES (?, ?)');
