@@ -126,7 +126,7 @@ const restaurantId = info.lastInsertRowid;
     insertUser.run(restaurantId, 'admin', password, 'admin');
     insertUser.run(restaurantId, 'kitchen', password, 'kitchen');
     insertUser.run(restaurantId, 'billing', password, 'billing');
-    insertUser.run(restaurantId, 'owner', password1, 'owner');
+    insertUser.run(restaurantId, 'owner', password, 'owner');
 
     // 3. Create Tables
     const insertTable = db.prepare('INSERT INTO tables (restaurant_id, name) VALUES (?, ?)');
